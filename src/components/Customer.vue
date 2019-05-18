@@ -1,8 +1,13 @@
 <template>
   <v-fragment id="rows">
-    <div v-for="index in parseInt(rows)" v-bind:key="index" class="customer-rows">
+    <div v-for="customer in customers" v-bind:key="customer.name" class="customers">
       <div class="customer">
-        index: {{ index }}
+        <p>
+          name: {{ customer.name }}
+        </p>
+        <p>
+          order: {{ customer.order }}
+        </p>
       </div>
     </div>
   </v-fragment>
@@ -11,10 +16,9 @@
 <script>
 export default {
   name: 'customer',
-  props: [
-    'rows',
-    'names',
-  ],
+  props: {
+    customers: Object,
+  },
 }
 </script>
 

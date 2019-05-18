@@ -1,13 +1,13 @@
 <template>
   <div id="customer-col">
     <div class="customer-row">
-      <Customer />
+      <Customer v-bind:customers="row1" />
     </div>
     <div class="customer-row">
-      <Customer />
+      <Customer v-bind:customers="row2" />
     </div>
     <div class="customer-row">
-      <Customer />
+      <Customer v-bind:customers="row3" />
     </div>
   </div>
 </template>
@@ -17,6 +17,13 @@ import Customer from './Customer';
 
 export default {
   name: 'customers',
+  data: function() {
+    return {
+      row1: [{name: 'john', order: 0}, {name: 'mike', order: 1}],
+      row2: [{name: 'marin', order: 1},],
+      row3: [{name: 'hoge', order: 0},]
+    };
+  },
   components: {
     Customer,
   },
