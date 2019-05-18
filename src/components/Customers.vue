@@ -19,9 +19,22 @@ export default {
   name: 'customers',
   data: function() {
     return {
-      row1: [{name: 'john', order: 0}, {name: 'mike', order: 1}],
-      row2: [{name: 'marin', order: 1},],
-      row3: [{name: 'hoge', order: 0},]
+      row1: [
+        { name: 'john', order: 0 },
+        { name: 'john', order: 0 },
+        { name: 'john', order: 0 },
+        { name: 'john', order: 0 },
+        { name: 'mike', order: 1 }
+      ],
+      row2: [
+        {name: 'marin', order: 1},
+        {name: 'jozeph', order: 1},
+        {name: 'ree', order: 0},
+      ],
+      row3: [
+        {name: 'hoge', order: 0},
+      ],
+      limit_number_of_customer_each_row: 5,
     };
   },
   components: {

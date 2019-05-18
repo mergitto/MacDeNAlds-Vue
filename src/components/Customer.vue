@@ -1,16 +1,9 @@
 <template>
-  <v-fragment id="rows">
-    <div v-for="customer in customers" v-bind:key="customer.name" class="customers">
-      <div class="customer">
-        <p>
-          name: {{ customer.name }}
-        </p>
-        <p>
-          order: {{ customer.order }}
-        </p>
-      </div>
+  <div class="customers">
+    <div v-for="customer in customers" v-bind:key="customer.name" class="customer">
+      {{ customer.name }} : {{ customer.order }}
     </div>
-  </v-fragment>
+  </div>
 </template>
 
 <script>
@@ -23,4 +16,17 @@ export default {
 </script>
 
 <style lang="scss">
+.customers {
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+.customer {
+  background-color:  mediumorchid;
+  height: 50%;
+  width: 20%;
+  margin: 5px;
+  border: 1px solid black;
+}
 </style>
