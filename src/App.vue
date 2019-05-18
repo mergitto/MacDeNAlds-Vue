@@ -4,19 +4,25 @@
       <h1>{{ msg }}</h1>
     </header>
     <div id="app">
-      <div id="customer-col">
-      </div>
-      <div id="register-col">
-      </div>
-      <div id="food-col">
-      </div>
+      <Customers />
+      <Register />
+      <Food />
     </div>
   </div>
 </template>
 
 <script>
+import Customers from './components/Customers';
+import Register from './components/Register';
+import Food from './components/Food';
+
 export default {
   name: 'app',
+  components: {
+    Customers,
+    Register,
+    Food,
+  },
   data () {
     return {
       msg: 'Welcome to MacDeNAlds !!'
@@ -46,17 +52,5 @@ h1 {
   margin-top: 60px;
   display: flex;
   height: 70vh;
-}
-#customer-col {
-  background-color: aquamarine;
-  width: 50vw;
-}
-#register-col {
-  background-color: darkgoldenrod;
-  width: 25vw;
-}
-#food-col {
-  background-color: chocolate;
-  width: 25vw;
 }
 </style>
