@@ -1,19 +1,12 @@
 <template>
   <div id="customer-col">
-    <div class="customer-rows">
-      <CustomerRows />
-    </div>
-    <div class="customer-rows">
-      <CustomerRows />
-    </div>
-    <div class="customer-rows">
-      <CustomerRows />
-    </div>
+    <CustomerRows rows=3 names="['john', 'mike', 'liza']" />
   </div>
 </template>
 
 <script>
 import CustomerRows from './CustomerRows';
+
 export default {
   name: 'customers',
   components: {
