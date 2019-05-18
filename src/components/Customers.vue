@@ -1,16 +1,24 @@
 <template>
   <div id="customer-col">
-    <CustomerRows rows=3 names="['john', 'mike', 'liza']" />
+    <div class="customer-row">
+      <Customer />
+    </div>
+    <div class="customer-row">
+      <Customer />
+    </div>
+    <div class="customer-row">
+      <Customer />
+    </div>
   </div>
 </template>
 
 <script>
-import CustomerRows from './CustomerRows';
+import Customer from './Customer';
 
 export default {
   name: 'customers',
   components: {
-    CustomerRows,
+    Customer,
   },
 }
 </script>
@@ -23,7 +31,7 @@ export default {
   justify-content: space-around;
   flex-direction: column;
 }
-.customer-rows {
+.customer-row {
   position: relative;
   width: 100%;
   height: 30%;
