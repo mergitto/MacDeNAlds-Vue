@@ -1,23 +1,23 @@
 <template>
   <div id="customer-col">
     <div class="customer-rows">
-      <Customer />
+      <CustomerRows />
     </div>
     <div class="customer-rows">
-      <Customer />
+      <CustomerRows />
     </div>
     <div class="customer-rows">
-      <Customer />
+      <CustomerRows />
     </div>
   </div>
 </template>
 
 <script>
-import Customer from './Customer';
+import CustomerRows from './CustomerRows';
 export default {
   name: 'customers',
   components: {
-    Customer,
+    CustomerRows,
   },
 }
 </script>

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'customer',
+  name: 'customerRows',
 }
 </script>
 
