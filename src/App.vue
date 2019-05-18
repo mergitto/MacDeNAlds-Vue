@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-    <header>
-      <h1>{{ msg }}</h1>
-    </header>
+    <Header />
     <div id="app">
       <Customers />
       <Register />
@@ -15,6 +13,7 @@
 import Customers from './components/Customers';
 import Register from './components/Register';
 import Food from './components/Food';
+import Header from './components/Header';
 
 export default {
   name: 'app',
@@ -22,24 +21,17 @@ export default {
     Customers,
     Register,
     Food,
+    Header,
   },
   data () {
     return {
-      msg: 'Welcome to MacDeNAlds !!'
+      msg: 'Welcome to McDeNAlds !!'
     }
   }
 }
 </script>
 
 <style lang="scss">
-header {
-  margin: 40px;
-}
-h1 {
-  margin: auto;
-  font-weight: normal;
-  text-align: center;
-}
 .container {
   text-align: center;
   width: 100vw;

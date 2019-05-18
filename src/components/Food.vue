@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="food-making">
-        <div class="cooking-seconds-barger" v-for="index in 1" v-bind:key="index">
+        <div class="cooking-seconds-barger" v-for="index in 2" v-bind:key="index">
           <div class="seconds">{{ index }} sec</div>
         </div>
       </div>
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="food-making">
-        <div class="cooking-seconds-barger-flies" v-for="index in 4" v-bind:key="index">
+        <div class="cooking-seconds-barger-flies" v-for="index in 6" v-bind:key="index">
           <div class="seconds">{{ index }} sec</div>
         </div>
       </div>
@@ -66,12 +66,14 @@
 .warm-food  {
   height: 10%;
 }
+// food making seconds
 .cooking-seconds-barger {
-  height: 50%;
+  height: 33.3%; // 33.3 == 3個分
 }
 .cooking-seconds-barger-flies {
-  height: 20%;
+  height: 14.3%; // 14.3 == 7個分
 }
+// end food making seconds
 .stack-food {
   width: 100%;
   background-color: black;
