@@ -55,7 +55,5 @@ export default {
   position: relative;
   width: 100%;
   height: 30%;
-  border: 1px solid black;
-  background-color: white;
 }
 </style>

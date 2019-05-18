@@ -28,5 +28,10 @@ export default {
   width: 20%;
   margin: 5px;
   border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
 }
 </style>
