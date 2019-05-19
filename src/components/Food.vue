@@ -2,19 +2,19 @@
   <div id="food-col">
     <div class="food-rows">
       <div class="food-stack">
-        <div class="warm-food" v-for="index in this.numberOfBurger" v-bind:key="index">
+        <div class="warm-food" v-for="index in burger" v-bind:key="index">
           <div class="stack-food">b</div>
         </div>
       </div>
       <div class="food-making">
-        <div class="cooking-seconds-barger" v-for="index in parseInt(seconds % 5)" v-bind:key="index">
+        <div class="cooking-seconds-burger" v-for="index in parseInt(seconds % 5)" v-bind:key="index">
           <div class="seconds">{{ index }} sec</div>
         </div>
       </div>
     </div>
     <div class="food-rows">
       <div class="food-stack">
-        <div class="warm-food" v-for="index in 6" v-bind:key="index">
+        <div class="warm-food" v-for="index in flies" v-bind:key="index">
           <div class="stack-food">f</div>
         </div>
       </div>
@@ -30,17 +30,16 @@
 <script>
 export default {
   name: 'food',
+  props: {
+    seconds: Number,
+    burger: Number,
+    flies: Number,
+  },
   data: function() {
     return {
     }
   },
-  props: {
-    seconds: Number,
-  },
   methods: {
-    handleChange: function() {
-      console.log(numberOfBurger);
-    }
   }
 }
 </script>
@@ -72,7 +71,7 @@ export default {
   flex-direction: column;
 }
 .warm-food,
-.cooking-seconds-barger,
+.cooking-seconds-burger,
 .cooking-seconds-flies {
   margin: 0;
   width: 100%;
@@ -82,7 +81,7 @@ export default {
   height: 10%;
 }
 // food making seconds
-.cooking-seconds-barger {
+.cooking-seconds-burger {
   height: 25%; // 25 == 4個分
 }
 .cooking-seconds-flies {

@@ -2,7 +2,7 @@
   <div class="container">
     <Header />
     <input
-      v-on:click="handleStart"
+      v-on:click="handleNext"
       type="button"
       value="next step"
     />
@@ -10,7 +10,11 @@
     <div id="app">
       <Customers />
       <Register />
-      <Food v-bind:seconds="seconds" />
+      <Food
+        v-bind:seconds="seconds"
+        v-bind:burger="numberOfBurger"
+        v-bind:flies="numberOfFlies"
+      />
     </div>
   </div>
 </template>
@@ -33,12 +37,22 @@ export default {
     return {
       msg: 'Welcome to McDeNAlds !!',
       seconds: 0,
+      numberOfBurger: 0,
+      numberOfFlies: 0,
     }
   },
   methods: {
-    handleStart: function() {
+    handleNext: function() {
       this.seconds++;
-    }
+      if (this.isCookedBurger()) { this.numberOfBurger++ };
+      if (this.isCookedFlies()) { this.numberOfFlies++ };
+    },
+    isCookedBurger: function() {
+      return (this.seconds % 5 == 0);
+    },
+    isCookedFlies: function() {
+      return this.seconds % 8 == 0;
+    },
   },
 }
 </script>
