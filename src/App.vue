@@ -8,7 +8,9 @@
     />
     ({{ seconds }}sec)
     <div id="app">
-      <Customers />
+      <Customers
+        v-bind:seconds="seconds"
+      />
       <Register />
       <Food
         v-bind:seconds="seconds"

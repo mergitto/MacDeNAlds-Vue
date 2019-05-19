@@ -17,12 +17,12 @@ import Customer from './Customer';
 
 export default {
   name: 'customers',
+  props: {
+    seconds: Number,
+  },
   data: function() {
     return {
       row1: [
-        { name: 'john', order: 0 },
-        { name: 'john', order: 0 },
-        { name: 'john', order: 0 },
         { name: 'john', order: 0 },
         { name: 'mike', order: 1 }
       ],
