@@ -2,12 +2,12 @@
   <div id="food-col">
     <div class="food-rows">
       <div class="food-stack">
-        <div class="warm-food" v-for="index in 10" v-bind:key="index">
+        <div class="warm-food" v-for="index in this.numberOfBurger" v-bind:key="index">
           <div class="stack-food">b</div>
         </div>
       </div>
       <div class="food-making">
-        <div class="cooking-seconds-barger" v-for="index in 2" v-bind:key="index">
+        <div class="cooking-seconds-barger" v-for="index in parseInt(seconds % 5)" v-bind:key="index">
           <div class="seconds">{{ index }} sec</div>
         </div>
       </div>
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="food-making">
-        <div class="cooking-seconds-flies" v-for="index in 6" v-bind:key="index">
+        <div class="cooking-seconds-flies" v-for="index in parseInt(seconds % 8)" v-bind:key="index">
           <div class="seconds">{{ index }} sec</div>
         </div>
       </div>
@@ -28,6 +28,21 @@
 </template>
 
 <script>
+export default {
+  name: 'food',
+  data: function() {
+    return {
+    }
+  },
+  props: {
+    seconds: Number,
+  },
+  methods: {
+    handleChange: function() {
+      console.log(numberOfBurger);
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -68,7 +83,7 @@
 }
 // food making seconds
 .cooking-seconds-barger {
-  height: 33.3%; // 33.3 == 3個分
+  height: 25%; // 25 == 4個分
 }
 .cooking-seconds-flies {
   height: 14.3%; // 14.3 == 7個分

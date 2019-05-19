@@ -1,10 +1,16 @@
 <template>
   <div class="container">
     <Header />
+    <input
+      v-on:click="handleStart"
+      type="button"
+      value="next step"
+    />
+    ({{ seconds }}sec)
     <div id="app">
       <Customers />
       <Register />
-      <Food />
+      <Food v-bind:seconds="seconds" />
     </div>
   </div>
 </template>
@@ -25,9 +31,15 @@ export default {
   },
   data () {
     return {
-      msg: 'Welcome to McDeNAlds !!'
+      msg: 'Welcome to McDeNAlds !!',
+      seconds: 0,
     }
-  }
+  },
+  methods: {
+    handleStart: function() {
+      this.seconds++;
+    }
+  },
 }
 </script>
 

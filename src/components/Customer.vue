@@ -1,6 +1,6 @@
 <template>
   <div class="customers">
-    <div v-for="customer in customers" v-bind:key="customer.name" class="customer">
+    <div v-for="(customer, index) in customers" v-bind:key="index" class="customer">
       {{ customer.name }} : {{ customer.order }}
     </div>
   </div>
@@ -10,7 +10,7 @@
 export default {
   name: 'customer',
   props: {
-    customers: Object,
+    customers: Array,
   },
 }
 </script>
