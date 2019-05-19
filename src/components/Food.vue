@@ -3,7 +3,7 @@
     <div class="food-rows">
       <div class="food-stack">
         <div class="warm-food" v-for="index in 10" v-bind:key="index">
-          <div class="stack-food"></div>
+          <div class="stack-food">b</div>
         </div>
       </div>
       <div class="food-making">
@@ -15,11 +15,11 @@
     <div class="food-rows">
       <div class="food-stack">
         <div class="warm-food" v-for="index in 6" v-bind:key="index">
-          <div class="stack-food"></div>
+          <div class="stack-food">f</div>
         </div>
       </div>
       <div class="food-making">
-        <div class="cooking-seconds-barger-flies" v-for="index in 6" v-bind:key="index">
+        <div class="cooking-seconds-flies" v-for="index in 6" v-bind:key="index">
           <div class="seconds">{{ index }} sec</div>
         </div>
       </div>
@@ -58,7 +58,7 @@
 }
 .warm-food,
 .cooking-seconds-barger,
-.cooking-seconds-barger-flies {
+.cooking-seconds-flies {
   margin: 0;
   width: 100%;
   display: flex;
@@ -70,7 +70,7 @@
 .cooking-seconds-barger {
   height: 33.3%; // 33.3 == 3個分
 }
-.cooking-seconds-barger-flies {
+.cooking-seconds-flies {
   height: 14.3%; // 14.3 == 7個分
 }
 // end food making seconds
