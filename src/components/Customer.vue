@@ -1,5 +1,7 @@
 <template>
   <div class="customers">
+    <input v-on:click="soldBurger" value="burger" type="button" >
+    <input v-on:click="soldFlies" value="flies" type="button" >
     <div v-for="(customer, index) in customers" v-bind:key="index" class="customer">
       {{ customer.name }} : {{ customer.order }}
     </div>
@@ -11,6 +13,24 @@ export default {
   name: 'customer',
   props: {
     customers: Array,
+  },
+  methods: {
+    soldBurger: function() {
+      const numberOfBurger = this.$parent.$parent.numberOfBurger;
+      if (numberOfBurger > 0) {
+        this.$parent.$parent.numberOfBurger--;
+      } else {
+        console.log('wait creating burger');
+      }
+    },
+    soldFlies: function() {
+      const numberOfFlies = this.$parent.$parent.numberOfFlies;
+      if (numberOfFlies > 0) {
+        this.$parent.$parent.numberOfFlies--;
+      } else {
+        console.log('wait creating flise');
+      }
+    },
   },
 }
 </script>

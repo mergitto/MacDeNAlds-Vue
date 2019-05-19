@@ -44,15 +44,16 @@ export default {
   methods: {
     handleNext: function() {
       this.seconds++;
-      if (this.isCookedBurger()) { this.numberOfBurger++ };
-      if (this.isCookedFlies()) { this.numberOfFlies++ };
+      if (this.isCookedBurger(4)) { this.numberOfBurger++ };
+      if (this.isCookedBurger(7)) { this.numberOfFlies++ };
     },
-    isCookedBurger: function() {
-      return (this.seconds % 5 == 0);
+    isCookedBurger: function(createTime) {
+      if (this.isLimitStack(this.numberOfBurger)) { return false; }
+      return this.seconds % (createTime + 1) == 0;
     },
-    isCookedFlies: function() {
-      return this.seconds % 8 == 0;
-    },
+    isLimitStack: function(quantity) {
+      return quantity >= 10;
+    }
   },
 }
 </script>
