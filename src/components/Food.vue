@@ -7,7 +7,11 @@
         </div>
       </div>
       <div class="food-making">
-        <div class="cooking-seconds-burger" v-for="index in parseInt(seconds % 5)" v-bind:key="index">
+        <div
+          class="cooking-seconds-burger"
+          v-for="index in parseInt(seconds % 5)"
+          v-bind:key="index"
+         >
           <div class="seconds">{{ index }} sec</div>
         </div>
       </div>
@@ -19,7 +23,11 @@
         </div>
       </div>
       <div class="food-making">
-        <div class="cooking-seconds-flies" v-for="index in parseInt(seconds % 8)" v-bind:key="index">
+        <div
+          class="cooking-seconds-flies"
+          v-for="index in parseInt(seconds % 8)"
+          v-bind:key="index"
+         >
           <div class="seconds">{{ index }} sec</div>
         </div>
       </div>
