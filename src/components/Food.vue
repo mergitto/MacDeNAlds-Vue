@@ -9,7 +9,7 @@
       <div class="food-making">
         <div
           class="cooking-seconds-burger"
-          v-for="index in parseInt(seconds % 5)"
+          v-for="index in burgerTimes"
           v-bind:key="index"
          >
           <div class="seconds">{{ index }} sec</div>
@@ -25,7 +25,7 @@
       <div class="food-making">
         <div
           class="cooking-seconds-flies"
-          v-for="index in parseInt(seconds % 8)"
+          v-for="index in fliesTimes"
           v-bind:key="index"
          >
           <div class="seconds">{{ index }} sec</div>
@@ -46,6 +46,14 @@ export default {
   data: function() {
     return {
     }
+  },
+  computed: {
+    burgerTimes: function() {
+      return this.seconds % 5;
+    },
+    fliesTimes: function() {
+      return this.seconds % 8;
+    },
   },
   methods: {
   }
