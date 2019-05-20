@@ -1,7 +1,15 @@
 <template>
   <div class="customers">
-    <input v-on:click="soldBurger()" value="burger" type="button" >
-    <input v-on:click="soldFlies()" value="flies" type="button" >
+    <input
+      v-on:click="$emit('orderBurger')"
+      value="burger"
+      type="button"
+    />
+    <input
+      v-on:click="$emit('orderFlies')"
+      value="flies"
+      type="button"
+    />
     <div v-for="(customer, index) in customers" v-bind:key="index" class="customer">
       {{ customer.name }} : {{ customer.order }}
     </div>
@@ -15,28 +23,6 @@ export default {
     customers: Array,
   },
   methods: {
-    isExistBurger: function() {
-      const numberOfBurger = this.$parent.$parent.numberOfBurger;
-      return numberOfBurger > 0;
-    },
-    isExistFlies: function() {
-      const numberOfFlies = this.$parent.$parent.numberOfFlies;
-      return numberOfFlies > 0;
-    },
-    soldBurger: function() {
-      if (this.isExistBurger()) {
-        this.$parent.$parent.numberOfBurger--;
-      } else {
-        console.log('wait creating burger');
-      }
-    },
-    soldFlies: function() {
-      if (this.isExistFlies()) {
-        this.$parent.$parent.numberOfFlies--;
-      } else {
-        console.log('wait creating flise');
-      }
-    },
   },
 }
 </script>

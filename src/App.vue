@@ -10,6 +10,8 @@
     <div id="app">
       <Customers
         v-bind:seconds="seconds"
+        v-on:orderBurger="handleOrderBurger()"
+        v-on:orderFlies="handleOrderFlies()"
       />
       <Register />
       <Food
@@ -44,6 +46,26 @@ export default {
     }
   },
   methods: {
+    isExistBurger: function() {
+      return this.numberOfBurger > 0;
+    },
+    isExistFlies: function() {
+      return this.numberOfFlies > 0;
+    },
+    handleOrderBurger: function() {
+      if (this.isExistBurger()) {
+        this.numberOfBurger--;
+      } else {
+        console.log('wait creating burger');
+      }
+    },
+    handleOrderFlies: function() {
+      if (this.isExistFlies()) {
+        this.numberOfFlies--;
+      } else {
+        console.log('wait creating flise');
+      }
+    },
     handleNext: function() {
       this.seconds++;
       if (this.isCookedBurger(4)) { this.numberOfBurger++ };

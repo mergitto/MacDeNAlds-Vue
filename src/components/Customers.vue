@@ -1,7 +1,11 @@
 <template>
   <div id="customer-col">
     <div class="customer-row">
-      <Customer v-bind:customers="row1" />
+      <Customer
+        v-bind:customers="row1"
+        v-on:orderBurger="$emit('orderBurger')"
+        v-on:orderFlies="$emit('orderFlies')"
+      />
     </div>
     <div class="customer-row">
       <Customer v-bind:customers="row2" />
@@ -39,6 +43,8 @@ export default {
   },
   components: {
     Customer,
+  },
+  methods: {
   },
 }
 </script>
