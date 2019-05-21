@@ -1,17 +1,7 @@
 <template>
   <div class="customers">
-    <input
-      v-on:click="$emit('orderBurger')"
-      value="burger"
-      type="button"
-    />
-    <input
-      v-on:click="$emit('orderFlies')"
-      value="flies"
-      type="button"
-    />
     <div v-for="(customer, index) in customers" v-bind:key="index" class="customer">
-      {{ customer.name }} : {{ customer.order }}
+      {{ customer.name }} : {{ customer.orderId }}
     </div>
   </div>
 </template>
