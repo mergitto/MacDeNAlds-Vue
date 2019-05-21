@@ -21,7 +21,9 @@
         v-on:orderBurger="handleOrderBurger()"
         v-on:orderFlies="handleOrderFlies()"
       />
-      <Register />
+      <Register
+        v-bind:ordersOfTopCustomer="ordersOfTopCustomer"
+      />
       <Food
         v-bind:seconds="seconds"
         v-bind:burger="numberOfBurger"
@@ -52,6 +54,7 @@ export default {
       numberOfBurger: 0,
       numberOfFlies: 0,
       limitNumberOfStack: 10,
+      ordersOfTopCustomer: [null, null, null],
       rows: [
         [
           { name: 'john', orderId: 0 },
@@ -67,15 +70,19 @@ export default {
     }
   },
   methods: {
+    gameStart: function() {
+      this.seconds++;
+      this.orderTake();
+      this.stackFood();
+    },
     handleNext: function() {
-      setInterval(() => {
-        this.seconds++;
-        this.orderTake();
-        this.stackFood();
-      }, 1000);
+      this.gameStart();
+      console.log(this.ordersOfTopCustomer);
     },
     handleAuto: function() {
-
+      setInterval(() => {
+        this.gameStart();
+      }, 1000);
     },
     orderTake: function() {
       this.rows.forEach((row, index) => {
@@ -83,13 +90,15 @@ export default {
         Object.assign(copyRow, row); // row配列をいじると本体に影響が出るためにコピーする
         const topOfCustomer = copyRow.reverse()[0];
         if (topOfCustomer !== undefined) {
-          if (this.isOrderTake(topOfCustomer.orderId)) {
+          this.ordersOfTopCustomer[index] = topOfCustomer.orderId;
+          if (this.isOrderedTake(topOfCustomer.orderId)) {
             this.rows[index].shift();
+            this.ordersOfTopCustomer[index] = null;
           }
         };
       });
     },
-    isOrderTake: function(orderId) {
+    isOrderedTake: function(orderId) {
       if (orderId === 0) {
         if (this.isExistBurger()) {
           this.handleOrderBurger();
