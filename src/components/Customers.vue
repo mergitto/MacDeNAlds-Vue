@@ -1,17 +1,11 @@
 <template>
   <div id="customer-col">
-    <div class="customer-row">
+    <div v-for="(row, index) in rows" v-bind:key="index" class="customer-row">
       <Customer
-        v-bind:customers="row1"
+        v-bind:customers="row"
         v-on:orderBurger="$emit('orderBurger')"
         v-on:orderFlies="$emit('orderFlies')"
       />
-    </div>
-    <div class="customer-row">
-      <Customer v-bind:customers="row2" />
-    </div>
-    <div class="customer-row">
-      <Customer v-bind:customers="row3" />
     </div>
   </div>
 </template>
@@ -26,17 +20,19 @@ export default {
   },
   data: function() {
     return {
-      row1: [
-        { name: 'john', order: 0 },
-        { name: 'mike', order: 1 }
-      ],
-      row2: [
-        {name: 'marin', order: 1},
-        {name: 'jozeph', order: 1},
-        {name: 'ree', order: 0},
-      ],
-      row3: [
-        {name: 'hoge', order: 0},
+      rows: [
+        [
+          { name: 'john', order: 0 },
+          { name: 'mike', order: 1 }
+        ],
+        [
+          {name: 'marin', order: 1},
+          {name: 'jozeph', order: 1},
+          {name: 'ree', order: 0},
+        ],
+        [
+          {name: 'hoge', order: 0},
+        ]
       ],
       limit_number_of_customer_each_row: 5,
     };
