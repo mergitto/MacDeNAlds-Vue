@@ -1,9 +1,18 @@
 <template>
-  <div id="">
-    <div v-for="(order, index) in ordersOfTopCustomer" v-bind:key="index" id="register-col">
-      {{ ordersOfTopCustomer }}
+  <div>
+    <div v-for="(order, index) in topOfCustomer" v-bind:key="index" id="register-col">
+      <div v-if="order" class="css-fukidashi">
+        <p class="fukidashi">
+          {{ orderedFood(order.orderId) }}
+        </p>
+      </div>
+      <div v-else class="css-fukidashi">
+        <p class="fukidashi-for-free-time">
+          暇だなー
+        </p>
+      </div>
       <div class="register-rows">
-        rege
+        register
       </div>
     </div>
   </div>
@@ -13,7 +22,23 @@
 export default {
   name: 'register',
   props: {
-    ordersOfTopCustomer: Array,
+    rows: Array,
+  },
+  computed: {
+    topOfCustomer() {
+      return this.rows.map(row => {
+        const copyRow = [];
+        Object.assign(copyRow, row); // row配列をいじると本体に影響が出るためにコピーする
+        const topOfCustomer = copyRow.reverse()[0]
+        return topOfCustomer;
+       });
+    }
+  },
+  methods: {
+    orderedFood: function(orderId) {
+      const food = ['burger', 'burger & flies'];
+      return food[orderId];
+    },
   },
 }
 </script>
@@ -30,7 +55,7 @@ export default {
 }
 .register-rows {
   width: 50%;
-  height: 20%;
+  height: 30%;
   color: white;
   background-color: red;
   display: flex;
@@ -38,5 +63,23 @@ export default {
   justify-content: center;
   font-weight: bold;
   padding: 10px;
+}
+.css-fukidashi {
+  padding: 0;
+  margin: 0;
+}
+.fukidashi,
+.fukidashi-for-free-time {
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+}
+.fukidashi {
+  background: chocolate;
+}
+.fukidashi-for-free-time {
+  background: purple;
 }
 </style>

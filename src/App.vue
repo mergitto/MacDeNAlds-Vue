@@ -22,7 +22,7 @@
         v-on:orderFlies="handleOrderFlies()"
       />
       <Register
-        v-bind:ordersOfTopCustomer="ordersOfTopCustomer"
+        v-bind:rows="rows"
       />
       <Food
         v-bind:seconds="seconds"
