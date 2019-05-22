@@ -45,7 +45,7 @@ export default {
 
 <style lang="scss">
 #register-col {
-  background-color: darkgoldenrod;
+  background-color: lightcoral;
   width: 15vw;
   height: 33.33333%;
   display: flex;
