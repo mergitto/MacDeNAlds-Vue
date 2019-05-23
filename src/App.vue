@@ -14,6 +14,7 @@
     ({{ seconds }}sec)
     <li>order_id: 0 => burger</li>
     <li>order_id: 1 => burger & flies</li>
+    <Addrow />
     <div id="app">
       <Customers
         v-bind:seconds="seconds"
@@ -22,7 +23,7 @@
         v-on:orderFlies="handleOrderFlies()"
       />
       <Register
-        v-bind:ordersOfTopCustomer="ordersOfTopCustomer"
+        v-bind:rows="rows"
       />
       <Food
         v-bind:seconds="seconds"
@@ -38,6 +39,7 @@ import Customers from './components/Customers';
 import Register from './components/Register';
 import Food from './components/Food';
 import Header from './components/Header';
+import Addrow from './components/Addrow';
 
 export default {
   name: 'app',
@@ -46,6 +48,7 @@ export default {
     Register,
     Food,
     Header,
+    Addrow,
   },
   data () {
     return {
@@ -162,7 +165,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 30px;
   display: flex;
   height: 70vh;
 }
