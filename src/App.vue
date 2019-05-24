@@ -14,13 +14,15 @@
     ({{ seconds }}sec)
     <li>order_id: 0 => burger</li>
     <li>order_id: 1 => burger & flies</li>
-    <AddRowForm />
+    <AddRowForm
+      v-on:addRow="handleAddRow"
+    />
     <div id="app">
       <Customers
         v-bind:seconds="seconds"
         v-bind:rows="rows"
-        v-on:orderBurger="handleOrderBurger()"
-        v-on:orderFlies="handleOrderFlies()"
+        v-on:orderBurger="handleOrderBurger"
+        v-on:orderFlies="handleOrderFlies"
       />
       <Register
         v-bind:rows="rows"
@@ -59,16 +61,9 @@ export default {
       limitNumberOfStack: 10,
       ordersOfTopCustomer: [null, null, null],
       rows: [
-        [
-          { name: 'john', orderId: 0 },
-          { name: 'mike', orderId: 1 }
-        ],
-        [
-          {name: 'marin', orderId: 1},
-        ],
-        [
-          {name: 'hoge', orderId: 0},
-        ]
+        [ {name: 'takemoto', orderId: 1 } ],
+        [ {name: 'ebi', orderId: 1}, ],
+        [ {name: 'tim', orderId: 0}, ]
       ],
     }
   },
@@ -86,6 +81,9 @@ export default {
       setInterval(() => {
         this.gameStart();
       }, 1000);
+    },
+    handleAddRow: function(name, orderId, pickedIndex) {
+      this.rows[pickedIndex].unshift({name: name, orderId: orderId})
     },
     orderTake: function() {
       this.rows.forEach((row, index) => {

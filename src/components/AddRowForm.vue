@@ -3,7 +3,7 @@
     <form>
       <div>
         <input type="text" size="15" placeholder="name please!" v-model="name" string>
-        <input type="number" min="0" max="1" v-model="num" number>
+        <input type="number" min="0" max="1" v-model="orderId" number>
       </div>
 
       <div>
@@ -17,7 +17,7 @@
         <label for="three">3rd row</label>
       </div>
     </form>
-    <input type="button" v-on:click="handleHoge" value="追加する">
+    <input type="button" v-on:click="$emit('addRow', name, orderId, pickedIndex)" value="追加する">
   </div>
 </template>
 
@@ -26,14 +26,9 @@ export default {
   name: 'addRowForm',
   data () {
     return {
-      name: 'jon',
-      num: 0,
+      name: 'john',
+      orderId: 0,
       pickedIndex: 0,
-    }
-  },
-  methods: {
-    handleHoge: function () {
-      console.log(this.name, this.num, this.pickedIndex);
     }
   },
 };
