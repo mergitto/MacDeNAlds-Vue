@@ -13,6 +13,9 @@ npm run dev
 
 # build for production with minification
 npm run build
+
+## 説明資料
+`./Explain.pdf`
 ```
 ![Imgur](https://i.imgur.com/sFIKxJR.png)
 
