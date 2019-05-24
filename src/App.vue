@@ -14,7 +14,7 @@
     ({{ seconds }}sec)
     <li>order_id: 0 => burger</li>
     <li>order_id: 1 => burger & flies</li>
-    <Addrow />
+    <AddRowForm />
     <div id="app">
       <Customers
         v-bind:seconds="seconds"
@@ -39,7 +39,7 @@ import Customers from './components/Customers';
 import Register from './components/Register';
 import Food from './components/Food';
 import Header from './components/Header';
-import Addrow from './components/Addrow';
+import AddRowForm from './components/AddRowForm';
 
 export default {
   name: 'app',
@@ -48,7 +48,7 @@ export default {
     Register,
     Food,
     Header,
-    Addrow,
+    AddRowForm,
   },
   data () {
     return {
