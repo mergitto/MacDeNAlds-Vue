@@ -11,8 +11,8 @@
           class="cooking-seconds-burger"
           v-for="index in burgerTimes"
           v-bind:key="index"
-         >
-          <div class="seconds">{{ index }} sec</div>
+        >
+          <div v-if="!isLimitBurger" class="seconds">{{ index }} sec</div>
         </div>
       </div>
     </div>
@@ -27,8 +27,8 @@
           class="cooking-seconds-flies"
           v-for="index in fliesTimes"
           v-bind:key="index"
-         >
-          <div class="seconds">{{ index }} sec</div>
+        >
+          <div v-if="!isLimitFlies" class="seconds">{{ index }} sec</div>
         </div>
       </div>
     </div>
@@ -42,10 +42,8 @@ export default {
     seconds: Number,
     burger: Number,
     flies: Number,
-  },
-  data: function() {
-    return {
-    }
+    isLimitBurger: Boolean,
+    isLimitFlies: Boolean,
   },
   computed: {
     burgerTimes: function() {

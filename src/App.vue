@@ -31,6 +31,8 @@
         v-bind:seconds="seconds"
         v-bind:burger="numberOfBurger"
         v-bind:flies="numberOfFlies"
+        v-bind:isLimitBurger="isLimitStack(this.numberOfBurger)"
+        v-bind:isLimitFlies="isLimitStack(this.numberOfFlies)"
       />
     </div>
   </div>
@@ -66,6 +68,11 @@ export default {
         [ {name: 'tim', orderId: 0}, ]
       ],
     }
+  },
+  computed: {
+    isLimitStackBarger: function() {
+      this.isLimitStack(this.numberOfBurger);
+    },
   },
   methods: {
     gameStart: function() {
