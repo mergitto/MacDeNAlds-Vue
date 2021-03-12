@@ -17,6 +17,5 @@ npm run build
 ## 説明資料
 `./Explain.pdf`
 ```
-![Imgur](https://i.imgur.com/sFIKxJR.png)
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
